@@ -3,10 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sarath & Dr. Nivedhya Jith - Wedding</title>
+    <title>Sarath & Dr. Nivedhya Jith - Wedding | January 4, 2026</title>
+    <meta name="description" content="Join us in celebrating the wedding of Sarath & Dr. Nivedhya Jith on January 4, 2026. A beautiful celebration of love at Guruvayur Shri Krishna Temple, Kerala.">
+    <meta name="keywords" content="wedding, Sarath, Nivedhya Jith, Guruvayur, Kerala, January 2026, wedding invitation">
+    <meta name="author" content="Sarath & Dr. Nivedhya Jith">
+    <meta property="og:title" content="Sarath & Dr. Nivedhya Jith - Wedding">
+    <meta property="og:description" content="Join us in celebrating our wedding on January 4, 2026 at Guruvayur Shri Krishna Temple, Kerala.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="Photos/0438470F-7346-45D6-9D60-594C7002F02D_1_105_c.jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600&family=Segoe+UI:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preload" href="Photos/0438470F-7346-45D6-9D60-594C7002F02D_1_105_c.jpeg" as="image">
+    <link rel="preload" href="Photos/0D92C244-508A-4BF9-A200-A645621D3ACA_1_105_c.jpeg" as="image">
     <style>
+        /* CSS Custom Properties for Consistent Theming */
+        :root {
+            --primary-brown: #8b7355;
+            --secondary-brown: #a67c52;
+            --accent-brown: #8b4513;
+            --soft-gold: #D4AF37;
+            --cream: #F5F5DC;
+            --warm-white: #f5f3f0;
+            --light-beige: #e8e2d8;
+            --text-shadow: 1px 1px 3px rgba(139, 115, 85, 0.3);
+            --card-shadow: 0 20px 40px rgba(139, 115, 85, 0.15);
+            --hover-shadow: 0 25px 50px rgba(139, 115, 85, 0.2);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: 20px;
+            --glass-bg: rgba(245, 243, 240, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
         /* Wedding Website Styles */
         * {
             margin: 0;
@@ -18,6 +46,18 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            background: linear-gradient(135deg, var(--warm-white) 0%, var(--light-beige) 100%);
+            color: var(--primary-brown);
+            line-height: 1.6;
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
 
         .wedding-container {
@@ -259,7 +299,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(245, 243, 240, 0.85);
+            background: linear-gradient(135deg, 
+                rgba(245, 243, 240, 0.9) 0%, 
+                rgba(232, 226, 216, 0.8) 50%, 
+                rgba(245, 243, 240, 0.9) 100%);
             z-index: 1;
         }
 
@@ -274,19 +317,46 @@
         }
 
         .calendar-container {
-            background: rgba(245, 243, 240, 0.95);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
             padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(139, 115, 85, 0.15);
-            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
             text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calendar-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(212, 175, 55, 0.1), 
+                transparent);
+            transition: left 0.6s ease;
+        }
+
+        .calendar-container:hover::before {
+            left: 100%;
+        }
+
+        .calendar-container:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
         }
 
         .calendar {
             width: 300px;
             height: 300px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #8b4513, #a67c52);
+            background: linear-gradient(135deg, var(--accent-brown), var(--secondary-brown), var(--soft-gold));
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -294,6 +364,8 @@
             margin: 0 auto 2rem;
             position: relative;
             overflow: hidden;
+            transition: var(--transition);
+            animation: float 6s ease-in-out infinite;
         }
 
         .calendar::before {
@@ -305,6 +377,12 @@
             bottom: 0;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/></svg>');
             opacity: 0.3;
+            animation: rotate 20s linear infinite;
+        }
+
+        .calendar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
         }
 
         .calendar-month {
@@ -332,20 +410,61 @@
         }
 
         .countdown-container {
-            background: rgba(245, 243, 240, 0.95);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
             padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(139, 115, 85, 0.15);
-            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(212, 175, 55, 0.1), 
+                transparent);
+            transition: left 0.6s ease;
+        }
+
+        .countdown-container:hover::before {
+            left: 100%;
+        }
+
+        .countdown-container:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
         }
 
         .countdown-title {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            color: #8b7355;
+            color: var(--primary-brown);
             margin-bottom: 2rem;
             text-align: center;
             font-weight: 300;
+            text-shadow: var(--text-shadow);
+            position: relative;
+        }
+
+        .countdown-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--soft-gold), var(--accent-brown));
+            border-radius: 1px;
         }
 
         .countdown-grid {
@@ -356,27 +475,69 @@
 
         .countdown-item {
             text-align: center;
-            background: linear-gradient(135deg, #f5f3f0, #e8e2d8);
+            background: linear-gradient(135deg, var(--warm-white), var(--light-beige));
             padding: 1.5rem 1rem;
             border-radius: 15px;
-            border: 2px solid #8b4513;
+            border: 2px solid var(--accent-brown);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(212, 175, 55, 0.1), 
+                rgba(139, 69, 19, 0.1));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .countdown-item:hover::before {
+            opacity: 1;
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(139, 115, 85, 0.2);
+            border-color: var(--soft-gold);
         }
 
         .countdown-number {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            color: #8b4513;
+            color: var(--accent-brown);
             font-weight: 600;
             display: block;
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+
+        .countdown-item:hover .countdown-number {
+            color: var(--soft-gold);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
         }
 
         .countdown-label {
             font-family: 'Segoe UI', sans-serif;
             font-size: 0.9rem;
-            color: #8b7355;
+            color: var(--primary-brown);
             margin-top: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .countdown-item:hover .countdown-label {
+            color: var(--accent-brown);
         }
 
         /* Venue Section */
@@ -643,41 +804,102 @@
 
         .story-content {
             max-width: 1000px;
-            background: rgba(245, 243, 240, 0.95);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
             padding: 4rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(139, 115, 85, 0.15);
-            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
             text-align: center;
             position: relative;
             z-index: 2;
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .story-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(212, 175, 55, 0.1), 
+                transparent);
+            transition: left 0.8s ease;
+        }
+
+        .story-content:hover::before {
+            left: 100%;
+        }
+
+        .story-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
         }
 
         .story-title {
             font-family: 'Playfair Display', serif;
             font-size: 3rem;
-            color: #8b7355;
+            color: var(--primary-brown);
             margin-bottom: 3rem;
             font-weight: 300;
+            text-shadow: var(--text-shadow);
+            position: relative;
+        }
+
+        .story-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--soft-gold), var(--accent-brown));
+            border-radius: 2px;
         }
 
         .story-text {
             font-family: 'Segoe UI', sans-serif;
             font-size: 1.1rem;
-            color: #8b7355;
+            color: var(--primary-brown);
             line-height: 1.8;
             margin-bottom: 2rem;
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+
+        .story-text:hover {
+            color: var(--accent-brown);
         }
 
         .story-highlight {
             font-family: 'Playfair Display', serif;
             font-size: 1.3rem;
-            color: #8b4513;
+            color: var(--accent-brown);
             font-style: italic;
             margin: 2rem 0;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, 
+                rgba(212, 175, 55, 0.1), 
+                rgba(139, 69, 19, 0.1));
+            border-radius: 15px;
+            border-left: 4px solid var(--soft-gold);
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
         }
 
-        /* Animations */
+        .story-highlight:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(139, 115, 85, 0.2);
+        }
+
+        /* Advanced Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -710,7 +932,66 @@
             }
         }
 
-        /* Responsive Design */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes countdownFlip {
+            0% {
+                transform: rotateX(0deg);
+            }
+            50% {
+                transform: rotateX(90deg);
+            }
+            100% {
+                transform: rotateX(0deg);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+            }
+        }
+
+        /* Enhanced Responsive Design */
         @media (max-width: 768px) {
             .hero-content {
                 padding: 0 1rem;
@@ -731,6 +1012,7 @@
             
             .countdown-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
             }
             
             .calendar {
@@ -746,6 +1028,28 @@
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
+
+            .story-content {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .story-title {
+                font-size: 2.5rem;
+            }
+
+            .countdown-container,
+            .calendar-container {
+                padding: 2rem;
+            }
+
+            .countdown-title {
+                font-size: 2rem;
+            }
+
+            .countdown-number {
+                font-size: 2rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -760,6 +1064,7 @@
             
             .countdown-grid {
                 grid-template-columns: 1fr;
+                gap: 0.8rem;
             }
             
             .calendar {
@@ -775,7 +1080,8 @@
             .venue-item,
             .calendar-container,
             .countdown-container {
-                padding: 2rem;
+                padding: 1.5rem;
+                margin: 0.5rem;
             }
             
             .photo-carousel {
@@ -810,43 +1116,126 @@
                 width: 10px;
                 height: 10px;
             }
+
+            .story-title {
+                font-size: 2rem;
+            }
+
+            .countdown-title {
+                font-size: 1.8rem;
+            }
+
+            .countdown-number {
+                font-size: 1.8rem;
+            }
+
+            .story-highlight {
+                font-size: 1.1rem;
+                padding: 1rem;
+            }
         }
 
-        /* Custom scrollbar */
+        /* Enhanced Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
 
         ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #8b4513;
+            background: var(--light-beige);
             border-radius: 4px;
         }
 
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--accent-brown), var(--secondary-brown));
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
         ::-webkit-scrollbar-thumb:hover {
-            background: #a67c52;
+            background: linear-gradient(135deg, var(--secondary-brown), var(--soft-gold));
+        }
+
+        /* Loading Animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--warm-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--light-beige);
+            border-top: 3px solid var(--accent-brown);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Accessibility Improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Focus indicators */
+        *:focus {
+            outline: 2px solid var(--soft-gold);
+            outline-offset: 2px;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary-brown: #000000;
+                --secondary-brown: #333333;
+                --accent-brown: #000000;
+                --warm-white: #ffffff;
+                --light-beige: #f0f0f0;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
     <!-- Dynamic Background Images -->
     <div class="dynamic-background active">
-        <img src="Photos/0438470F-7346-45D6-9D60-594C7002F02D_1_105_c.jpeg" alt="Background 1" />
+        <img src="Photos/0438470F-7346-45D6-9D60-594C7002F02D_1_105_c.jpeg" alt="Wedding background featuring the couple" />
     </div>
     <div class="dynamic-background">
-        <img src="Photos/0D92C244-508A-4BF9-A200-A645621D3ACA_1_105_c.jpeg" alt="Background 2" />
+        <img src="Photos/0D92C244-508A-4BF9-A200-A645621D3ACA_1_105_c.jpeg" alt="Beautiful wedding ceremony background" />
     </div>
     <div class="dynamic-background">
-        <img src="Photos/C35DFFDF-4F8D-4FA3-8A95-FAF7FFBF2B86_1_105_c.jpeg" alt="Background 3" />
+        <img src="Photos/C35DFFDF-4F8D-4FA3-8A95-FAF7FFBF2B86_1_105_c.jpeg" alt="Elegant wedding venue background" />
     </div>
     <div class="dynamic-background">
-        <img src="Photos/0438470F-7346-45D6-9D60-594C7002F02D_1_105_c.jpeg" alt="Background 4" />
+        <img src="Photos/0438470F-7346-45D6-9D60-594C7002F02D_1_105_c.jpeg" alt="Romantic wedding moment background" />
     </div>
     <div class="dynamic-background">
-        <img src="Photos/0D92C244-508A-4BF9-A200-A645621D3ACA_1_105_c.jpeg" alt="Background 5" />
+        <img src="Photos/0D92C244-508A-4BF9-A200-A645621D3ACA_1_105_c.jpeg" alt="Celebration background" />
     </div>
 
     <div class="wedding-container">
@@ -922,7 +1311,6 @@
                     <div class="venue-item">
                         <h3 class="venue-name">Guruvayur Shri Krishna Temple</h3>
                         <p class="venue-address">Guruvayur, Kerala, India</p>
-                        <p style="font-family: 'Segoe UI', sans-serif; color: #8b7355; margin: 1rem 0; font-size: 0.95rem; line-height: 1.4; font-style: italic;">In the divine presence of Lord Krishna, we will exchange our sacred vows and begin our journey as one.</p>
                         <a href="https://maps.google.com/?q=Guruvayur+Shri+Krishna+Temple,+Guruvayur,+Kerala" target="_blank" class="venue-link">
                             <i class="fas fa-map-marker-alt"></i> View on Google Maps
                         </a>
@@ -931,7 +1319,6 @@
                     <div class="venue-item">
                         <h3 class="venue-name">Poonthanam Auditorium</h3>
                         <p class="venue-address">Guruvayur, Kerala, India</p>
-                        <p style="font-family: 'Segoe UI', sans-serif; color: #8b7355; margin: 1rem 0; font-size: 0.95rem; line-height: 1.4; font-style: italic;">A beautiful space where our families and friends will gather to witness our union and celebrate with traditional ceremonies.</p>
                         <a href="https://maps.google.com/?q=Poonthanam+Auditorium,+Guruvayur,+Kerala" target="_blank" class="venue-link">
                             <i class="fas fa-map-marker-alt"></i> View on Google Maps
                         </a>
@@ -939,8 +1326,7 @@
                     
                     <div class="venue-item">
                         <h3 class="venue-name">Corniche Convention Centre</h3>
-                        <p class="venue-address">Guruvayur, Kerala, India</p>
-                        <p style="font-family: 'Segoe UI', sans-serif; color: #8b7355; margin: 1rem 0; font-size: 0.95rem; line-height: 1.4; font-style: italic;">Join us for an evening of celebration, delicious food, and dancing as we toast to our new beginning together.</p>
+                        <p class="venue-address">Thriprayar, Kerala, India</p>
                         <a href="https://maps.google.com/?q=Corniche+Convention+Centre,+Guruvayur,+Kerala" target="_blank" class="venue-link">
                             <i class="fas fa-map-marker-alt"></i> View on Google Maps
                         </a>
@@ -998,39 +1384,38 @@
         <section class="gallery-section" id="gallery-section">
             <div class="gallery-content">
                 <h2 class="gallery-title">Capturing Our Journey</h2>
-                <p style="font-family: 'Segoe UI', sans-serif; color: #a67c52; margin-bottom: 3rem; font-size: 1.1rem; text-align: center; font-style: italic; max-width: 600px; margin-left: auto; margin-right: auto;">Every photograph tells a story, every moment holds a memory. Take a glimpse into our beautiful journey together.</p>
                 
                 <div class="photo-carousel">
                     <div class="carousel-container">
                         <div class="carousel-slide active">
-                            <img src="Photos/0438470F-7346-45D6-9D60-594C7002F02D_1_105_c.jpeg" alt="Wedding Photo 1" />
+                            <img src="Photos/0438470F-7346-45D6-9D60-594C7002F02D_1_105_c.jpeg" alt="Beautiful wedding moment of Sarath and Dr. Nivedhya Jith" loading="lazy" />
                         </div>
                         <div class="carousel-slide">
-                            <img src="Photos/0D92C244-508A-4BF9-A200-A645621D3ACA_1_105_c.jpeg" alt="Wedding Photo 2" />
+                            <img src="Photos/0D92C244-508A-4BF9-A200-A645621D3ACA_1_105_c.jpeg" alt="Romantic wedding ceremony photo" loading="lazy" />
                         </div>
                         <div class="carousel-slide">
-                            <img src="Photos/C35DFFDF-4F8D-4FA3-8A95-FAF7FFBF2B86_1_105_c.jpeg" alt="Wedding Photo 3" />
+                            <img src="Photos/C35DFFDF-4F8D-4FA3-8A95-FAF7FFBF2B86_1_105_c.jpeg" alt="Elegant wedding venue setting" loading="lazy" />
                         </div>
                         <div class="carousel-slide">
-                            <img src="Photos/4CE53F9A-7E1F-4607-9999-5E5E45ECCD33_1_105_c.jpeg" alt="Wedding Photo 4" />
+                            <img src="Photos/4CE53F9A-7E1F-4607-9999-5E5E45ECCD33_1_105_c.jpeg" alt="Wedding celebration moment" loading="lazy" />
                         </div>
                         <div class="carousel-slide">
-                            <img src="Photos/A198A88F-0BF9-45E0-86B4-03F9B57153EF_1_105_c.jpeg" alt="Wedding Photo 5" />
+                            <img src="Photos/A198A88F-0BF9-45E0-86B4-03F9B57153EF_1_105_c.jpeg" alt="Joyful wedding day photo" loading="lazy" />
                         </div>
                         <div class="carousel-slide">
-                            <img src="Photos/NEKT WEDDING-1.jpg" alt="Wedding Photo 6" />
+                            <img src="Photos/NEKT WEDDING-1.jpg" alt="Wedding ceremony highlights" loading="lazy" />
                         </div>
                         <div class="carousel-slide">
-                            <img src="Photos/NEKT WEDDING-2.jpg" alt="Wedding Photo 7" />
+                            <img src="Photos/NEKT WEDDING-2.jpg" alt="Wedding celebration memories" loading="lazy" />
                         </div>
                         <div class="carousel-slide">
-                            <img src="Photos/NEKT WEDDING-3.jpg" alt="Wedding Photo 8" />
+                            <img src="Photos/NEKT WEDDING-3.jpg" alt="Special wedding moments" loading="lazy" />
                         </div>
                         <div class="carousel-slide">
-                            <img src="Photos/NEKT WEDDING-8.jpg" alt="Wedding Photo 9" />
+                            <img src="Photos/NEKT WEDDING-8.jpg" alt="Wedding day joy and happiness" loading="lazy" />
                         </div>
                         <div class="carousel-slide">
-                            <img src="Photos/NW-117.jpg" alt="Wedding Photo 10" />
+                            <img src="Photos/NW-117.jpg" alt="Beautiful wedding memories" loading="lazy" />
                         </div>
                         
                         <!-- Navigation Arrows -->
@@ -1061,7 +1446,9 @@
     </div>
 
     <script>
-        // Countdown Timer
+        // Enhanced Countdown Timer with Animations
+        let previousValues = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+        
         function updateCountdown() {
             const weddingDate = new Date('2026-01-04T00:00:00').getTime();
             const now = new Date().getTime();
@@ -1073,15 +1460,48 @@
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                document.getElementById('days').textContent = days;
-                document.getElementById('hours').textContent = hours;
-                document.getElementById('minutes').textContent = minutes;
-                document.getElementById('seconds').textContent = seconds;
+                // Animate number changes
+                animateNumberChange('days', days, previousValues.days);
+                animateNumberChange('hours', hours, previousValues.hours);
+                animateNumberChange('minutes', minutes, previousValues.minutes);
+                animateNumberChange('seconds', seconds, previousValues.seconds);
+
+                // Update previous values
+                previousValues = { days, hours, minutes, seconds };
+
+                // Add celebration effects for milestones
+                checkMilestones(days, hours, minutes, seconds);
             } else {
+                // Wedding day reached!
                 document.getElementById('days').textContent = '0';
                 document.getElementById('hours').textContent = '0';
                 document.getElementById('minutes').textContent = '0';
                 document.getElementById('seconds').textContent = '0';
+                
+                // Add celebration animation
+                document.querySelector('.countdown-container').style.animation = 'glow 2s ease-in-out infinite';
+            }
+        }
+
+        function animateNumberChange(elementId, newValue, oldValue) {
+            const element = document.getElementById(elementId);
+            if (newValue !== oldValue) {
+                element.style.animation = 'countdownFlip 0.6s ease-in-out';
+                setTimeout(() => {
+                    element.textContent = newValue;
+                    element.style.animation = '';
+                }, 300);
+            }
+        }
+
+        function checkMilestones(days, hours, minutes, seconds) {
+            // Special effects for milestone days
+            if (days === 100 || days === 50 || days === 30 || days === 7 || days === 1) {
+                const container = document.querySelector('.countdown-container');
+                container.style.animation = 'glow 3s ease-in-out';
+                setTimeout(() => {
+                    container.style.animation = '';
+                }, 3000);
             }
         }
 
@@ -1110,11 +1530,14 @@
         // Initial background setup
         updateBackground();
 
-        // Photo Carousel Functionality
+        // Enhanced Photo Carousel with Touch Support
         let currentSlideIndex = 0;
         const slides = document.querySelectorAll('.carousel-slide');
         const indicators = document.querySelectorAll('.indicator');
         const totalSlides = slides.length;
+        let autoSlideInterval;
+        let touchStartX = 0;
+        let touchEndX = 0;
 
         function showSlide(index) {
             // Remove active class from all slides and indicators
@@ -1144,17 +1567,73 @@
             showSlide(currentSlideIndex);
         }
 
-        // Auto-advance carousel every 5 seconds
-        setInterval(() => {
-            changeSlide(1);
-        }, 5000);
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                changeSlide(1);
+            }, 5000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        // Touch support for mobile
+        const carouselContainer = document.querySelector('.carousel-container');
+        
+        carouselContainer.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+            stopAutoSlide();
+        });
+
+        carouselContainer.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            startAutoSlide();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left - next slide
+                    changeSlide(1);
+                } else {
+                    // Swipe right - previous slide
+                    changeSlide(-1);
+                }
+            }
+        }
 
         // Keyboard navigation
         document.addEventListener('keydown', function(event) {
             if (event.key === 'ArrowLeft') {
                 changeSlide(-1);
+                stopAutoSlide();
+                startAutoSlide();
             } else if (event.key === 'ArrowRight') {
                 changeSlide(1);
+                stopAutoSlide();
+                startAutoSlide();
+            }
+        });
+
+        // Pause auto-slide on hover
+        carouselContainer.addEventListener('mouseenter', stopAutoSlide);
+        carouselContainer.addEventListener('mouseleave', startAutoSlide);
+
+        // Start auto-slide
+        startAutoSlide();
+
+        // Loading animation
+        window.addEventListener('load', function() {
+            const loadingOverlay = document.querySelector('.loading-overlay');
+            if (loadingOverlay) {
+                loadingOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    loadingOverlay.style.display = 'none';
+                }, 500);
             }
         });
     </script>
